@@ -9,36 +9,36 @@ private:
     short int minutes;
 
 public:
-    // Конструкторы
+    // РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
     Time();
     Time(short int h, short int m);
     Time(const Time& other);
 
-    // Сеттер
+    // РЎРµС‚С‚РµСЂ
     void setTime(short int h, short int m);
 
-    // Геттеры
+    // Р“РµС‚С‚РµСЂС‹
     short int getHours() const;
     short int getMinutes() const;
 
-    // Методы
+    // РњРµС‚РѕРґС‹
     Time subtract(const Time& other) const;
     void inputTime();
 
-    // Перегрузка оператора вывода
+    // РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РІС‹РІРѕРґР°
     friend std::ostream& operator<<(std::ostream& os, const Time& time);
 
-    // Перегрузка унарных операторов
-    Time& operator++();    // Префиксный инкремент
-    Time operator++(int);  // Постфиксный инкремент
-    Time& operator--();    // Префиксный декремент
-    Time operator--(int);  // Постфиксный декремент
+    // РџРµСЂРµРіСЂСѓР·РєР° СѓРЅР°СЂРЅС‹С… РѕРїРµСЂР°С‚РѕСЂРѕРІ
+    Time& operator++();    // РџСЂРµС„РёРєСЃРЅС‹Р№ РёРЅРєСЂРµРјРµРЅС‚
+    Time operator++(int);  // РџРѕСЃС‚С„РёРєСЃРЅС‹Р№ РёРЅРєСЂРµРјРµРЅС‚
+    Time& operator--();    // РџСЂРµС„РёРєСЃРЅС‹Р№ РґРµРєСЂРµРјРµРЅС‚
+    Time operator--(int);  // РџРѕСЃС‚С„РёРєСЃРЅС‹Р№ РґРµРєСЂРµРјРµРЅС‚
 
-    // Перегрузка операций приведения типа
-    operator int() const;    // Преобразование в int (общее количество минут)
-    explicit operator bool() const; // Преобразование в bool (проверка на ноль)
+    // РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С†РёР№ РїСЂРёРІРµРґРµРЅРёСЏ С‚РёРїР°
+    operator int() const;    // РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РІ int (РѕР±С‰РµРµ РєРѕР»РёС‡РµСЃС‚РІРѕ РјРёРЅСѓС‚)
+    explicit operator bool() const; // РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РІ bool (РїСЂРѕРІРµСЂРєР° РЅР° РЅРѕР»СЊ)
 
-    // Перегрузка бинарных операторов сравнения
+    // РџРµСЂРµРіСЂСѓР·РєР° Р±РёРЅР°СЂРЅС‹С… РѕРїРµСЂР°С‚РѕСЂРѕРІ СЃСЂР°РІРЅРµРЅРёСЏ
     bool operator<(const Time& other) const;
     bool operator>(const Time& other) const;
 };
