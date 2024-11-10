@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Конструкторы
+// РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂС‹
 Time::Time() : hours(0), minutes(0) {}
 
 Time::Time(short int h, short int m) {
@@ -13,25 +13,25 @@ Time::Time(short int h, short int m) {
 
 Time::Time(const Time& other) : hours(other.hours), minutes(other.minutes) {}
 
-// Сеттер
+// РЎРµС‚С‚РµСЂ
 void Time::setTime(short int h, short int m) {
     hours = h;
     minutes = m;
 }
 
 
-// Геттеры
+// Р“РµС‚С‚РµСЂС‹
 short int Time::getHours() const { return hours; }
 short int Time::getMinutes() const { return minutes; }
 
-// Перегрузка оператора вывода
+// РџРµСЂРµРіСЂСѓР·РєР° РѕРїРµСЂР°С‚РѕСЂР° РІС‹РІРѕРґР°
 ostream& operator<<(ostream& os, const Time& time) {
     os << setw(2) << setfill('0') << time.hours << ":"
         << setw(2) << setfill('0') << time.minutes;
     return os;
 }
 
-// Метод для вычитания времени
+// РњРµС‚РѕРґ РґР»СЏ РІС‹С‡РёС‚Р°РЅРёСЏ РІСЂРµРјРµРЅРё
 Time Time::subtract(const Time& other) const {
     int totalMinutes1 = hours * 60 + minutes;
     int totalMinutes2 = other.hours * 60 + other.minutes;
@@ -47,47 +47,47 @@ Time Time::subtract(const Time& other) const {
     return result;
 }
 
-// Метод для ввода времени
+// РњРµС‚РѕРґ РґР»СЏ РІРІРѕРґР° РІСЂРµРјРµРЅРё
 void Time::inputTime() {
     short int h, m;
     bool isValid = false;
 
     while (!isValid) {
-        std::cout << "Введите часы (0-23): ";
+        std::cout << "Р’РІРµРґРёС‚Рµ С‡Р°СЃС‹ (0-23): ";
         std::cin >> h;
 
-        // Проверка на корректность числового ввода
+        // РџСЂРѕРІРµСЂРєР° РЅР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ С‡РёСЃР»РѕРІРѕРіРѕ РІРІРѕРґР°
         if (std::cin.fail()) {
-            std::cout << "Ошибка ввода! Пожалуйста, введите целое число." << std::endl;
-            std::cin.clear(); // Сбрасываем флаг ошибки
-            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // Очищаем буфер ввода
+            std::cout << "РћС€РёР±РєР° РІРІРѕРґР°! РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ." << std::endl;
+            std::cin.clear(); // РЎР±СЂР°СЃС‹РІР°РµРј С„Р»Р°Рі РѕС€РёР±РєРё
+            std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n'); // РћС‡РёС‰Р°РµРј Р±СѓС„РµСЂ РІРІРѕРґР°
             continue;
         }
 
-        std::cout << "Введите минуты (0-59): ";
+        std::cout << "Р’РІРµРґРёС‚Рµ РјРёРЅСѓС‚С‹ (0-59): ";
         std::cin >> m;
 
-        // Проверка на корректность числового ввода
+        // РџСЂРѕРІРµСЂРєР° РЅР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚СЊ С‡РёСЃР»РѕРІРѕРіРѕ РІРІРѕРґР°
         if (std::cin.fail()) {
-            std::cout << "Ошибка ввода! Пожалуйста, введите целое число." << std::endl;
+            std::cout << "РћС€РёР±РєР° РІРІРѕРґР°! РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РІРІРµРґРёС‚Рµ С†РµР»РѕРµ С‡РёСЃР»Рѕ." << std::endl;
             std::cin.clear();
             std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
             continue;
         }
 
-        // Проверка корректности диапазона значений
+        // РџСЂРѕРІРµСЂРєР° РєРѕСЂСЂРµРєС‚РЅРѕСЃС‚Рё РґРёР°РїР°Р·РѕРЅР° Р·РЅР°С‡РµРЅРёР№
         if (h >= 0 && h < 24 && m >= 0 && m < 60) {
             setTime(h, m);
-            isValid = true; // Выход из цикла при корректном вводе
+            isValid = true; // Р’С‹С…РѕРґ РёР· С†РёРєР»Р° РїСЂРё РєРѕСЂСЂРµРєС‚РЅРѕРј РІРІРѕРґРµ
         }
         else {
-            std::cout << "Некорректное значение времени! Пожалуйста, повторите ввод." << std::endl;
+            std::cout << "РќРµРєРѕСЂСЂРµРєС‚РЅРѕРµ Р·РЅР°С‡РµРЅРёРµ РІСЂРµРјРµРЅРё! РџРѕР¶Р°Р»СѓР№СЃС‚Р°, РїРѕРІС‚РѕСЂРёС‚Рµ РІРІРѕРґ." << std::endl;
         }
     }
 }
 
 
-// Унарные операторы
+// РЈРЅР°СЂРЅС‹Рµ РѕРїРµСЂР°С‚РѕСЂС‹
 Time& Time::operator++() {
     ++minutes;
     if (minutes >= 60) {
@@ -124,17 +124,17 @@ Time Time::operator--(int) {
     return temp;
 }
 
-// Преобразование в int
+// РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РІ int
 Time::operator int() const {
     return hours * 60 + minutes;
 }
 
-// Преобразование в bool
+// РџСЂРµРѕР±СЂР°Р·РѕРІР°РЅРёРµ РІ bool
 Time::operator bool() const {
     return hours != 0 || minutes != 0;
 }
 
-// Операторы сравнения
+// РћРїРµСЂР°С‚РѕСЂС‹ СЃСЂР°РІРЅРµРЅРёСЏ
 bool Time::operator<(const Time& other) const {
     return (hours * 60 + minutes) < (other.hours * 60 + other.minutes);
 }
