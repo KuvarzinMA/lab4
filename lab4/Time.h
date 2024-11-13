@@ -9,15 +9,15 @@ private:
     short int minutes;
 
 public:
-    // Конструкторы
+    // Конструкторы (Фигурные скобки позволяют задать начальные значения полям класса)
     Time();
     Time(short int h, short int m);
     Time(const Time& other);
 
-    // Сеттер
+    // Сеттер - это метод, который устанавливает значение для приватного поля
     void setTime(short int h, short int m);
 
-    // Геттеры
+    // Геттеры - это метод который возвращает значение приватного поля
     short int getHours() const;
     short int getMinutes() const;
 
