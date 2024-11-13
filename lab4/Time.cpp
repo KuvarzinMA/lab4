@@ -4,7 +4,7 @@
 
 using namespace std;
 
-// Конструкторы
+// Конструкторы (Фигурные скобки позволяют задать начальные значения полям класса)
 Time::Time() : hours(0), minutes(0) {}
 
 Time::Time(short int h, short int m) {
@@ -13,14 +13,14 @@ Time::Time(short int h, short int m) {
 
 Time::Time(const Time& other) : hours(other.hours), minutes(other.minutes) {}
 
-// Сеттер
+// Сеттер - это метод, который устанавливает значение для приватного поля
 void Time::setTime(short int h, short int m) {
     hours = h;
     minutes = m;
 }
 
 
-// Геттеры
+// Геттеры - это метод который возвращает значение приватного поля
 short int Time::getHours() const { return hours; }
 short int Time::getMinutes() const { return minutes; }
 
